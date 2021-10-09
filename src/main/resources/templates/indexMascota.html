@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="vet.ico" type="image/x-icon">
+</head>
+<body>
+<div class="container mt-4">
+<h1>Lista de Mascotas</h1>
+<a th:href="@{/nuevaMascota}" class="btn btn-primary">Nuevo</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Fecha Nacimiento</td>
+            <td>Tipo</td>
+            <td>Comprar Articulo</td>
+            <td>Atención Médica</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mascota:${mascotas}">
+            <td th:text="${mascota.id_mascota}"></td>
+            <td th:text="${mascota.nombre}"></td>
+            <td th:text="${mascota.fecha_nacimiento}"></td>
+            <td th:text="${mascota.tipo}"></td>
+            <td>
+                <a th:href="@{/verMascotas/}+${mascota.id_mascota}" class="btn btn-secondary">Ver Articulos</a>
+            </td>
+            <td>
+                <a th:href="@{/verMascotas/}+${mascota.id_mascota}" class="btn btn-secondary">Consulta</a>
+            </td>
+            <td>
+                <a th:href="@{/editarMascota/}+${mascota.id_mascota}" class="btn btn-warning">Editar</a>
+                <a th:onclick="eliminarMascota([[${mascota.id_mascota}]])" class= "btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="funciones.js"></script>
+</body>
+</html>

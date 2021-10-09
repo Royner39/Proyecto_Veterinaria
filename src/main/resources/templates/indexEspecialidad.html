@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <title>Veterinaria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="vet.ico" type="image/x-icon">
 </head>
 <body>
 <div class="container mt-4">
-<h1>Lista de Personas</h1>
-<a th:href="@{/nuevo}" class="btn btn-primary">Nuevo</a>
+<h1>Lista de Especialidades</h1>
+<a th:href="@{/nuevaEspecialidad}" class="btn btn-primary">Nuevo</a>
     <table class="table">
         <thead>
         <tr>
             <td>ID</td>
             <td>Nombre</td>
-            <td>Telefono</td>
             <td>Acciones</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="persona:${personas}">
-            <td th:text="${persona.id}"></td>
-            <td th:text="${persona.nombre}"></td>
-            <td th:text="${persona.telefono}"></td>
+        <tr th:each="especialidad:${especialidades}">
+            <td th:text="${especialidad.id}"></td>
+            <td th:text="${especialidad.nombre}"></td>
             <td>
-                <a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
-                <a th:onclick="eliminar([[${persona.id}]])" class= "btn btn-danger">Eliminar</a>
+                <a th:href="@{/editarEspecialidad/}+${especialidad.id}" class="btn btn-warning">Editar</a>
+                <a th:onclick="eliminarEspecialidad([[${especialidad.id}]])" class= "btn btn-danger">Eliminar</a>
             </td>
         </tr>
     </tbody>

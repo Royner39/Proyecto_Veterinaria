@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="vet.ico" type="image/x-icon">
+</head>
+<body>
+<div class="container mt-4">
+<h1>Lista de Veterinarios</h1>
+<a th:href="@{/nuevoVeterinario}" class="btn btn-primary">Nuevo</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Cédula</td>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Dirección</td>
+            <td>Telefono</td>
+            <td>Número Colegiado</td>
+            <td>Horario Atención</td>
+            <td>Especialidades</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="veterinario:${veterinarios}">
+            <td th:text="${veterinario.cedula}"></td>
+            <td th:text="${veterinario.nombre}"></td>
+            <td th:text="${veterinario.apellidos}"></td>
+            <td th:text="${veterinario.direccion}"></td>
+            <td th:text="${veterinario.telefono}"></td>
+            <td th:text="${veterinario.num_colegiado}"></td>
+            <td th:text="${veterinario.horario_atencion}"></td>
+            <td>
+                <a th:href="@{/listarEspecialidades/}+${veterinario.cedula}" class="btn btn-secondary">Ver Especialidades</a>
+            </td>
+            <td>
+                <a th:href="@{/editarVeterinario/}+${veterinario.cedula}" class="btn btn-warning">Editar</a>
+                <a th:onclick="eliminarVeterinario([[${veterinario.cedula}]])" class= "btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="funciones.js"></script>
+</body>
+</html>
