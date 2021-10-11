@@ -1,7 +1,9 @@
 package com.lp.proyecto_veterinaria.service;
 
+import com.lp.proyecto_veterinaria.interfaceService.IMascotaService;
 import com.lp.proyecto_veterinaria.interfaceService.IVeterinarioService;
 import com.lp.proyecto_veterinaria.interfaces.IVeterinario;
+import com.lp.proyecto_veterinaria.model.Mascota;
 import com.lp.proyecto_veterinaria.model.Veterinario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,9 @@ public class VeterinarioService implements IVeterinarioService {
     @Autowired
     private IVeterinario data;
 
+    @Autowired
+    private IMascotaService mascotaData;
+
     @Override
     public List<Veterinario> listar() {
         return (List<Veterinario>)data.findAll();
@@ -22,6 +27,11 @@ public class VeterinarioService implements IVeterinarioService {
     @Override
     public Optional<Veterinario> listarId(int cedula) {
         return data.findById(cedula);
+    }
+
+    @Override
+    public List<Mascota> listarMascotas() {
+        return (List<Mascota>)mascotaData.listar();
     }
 
     @Override

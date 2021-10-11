@@ -29,10 +29,10 @@
             <td th:text="${mascota.fecha_nacimiento}"></td>
             <td th:text="${mascota.tipo}"></td>
             <td>
-                <a th:href="@{/verMascotas/}+${mascota.id_mascota}" class="btn btn-secondary">Ver Articulos</a>
+                <a th:href="@{/listarProductos}" class="btn btn-secondary">Ver Articulos</a>
             </td>
             <td>
-                <a th:href="@{/verMascotas/}+${mascota.id_mascota}" class="btn btn-secondary">Consulta</a>
+                <a th:href="@{/nuevoTratamiento/}+${mascota.id_mascota}" class="btn btn-secondary">Consulta</a>
             </td>
             <td>
                 <a th:href="@{/editarMascota/}+${mascota.id_mascota}" class="btn btn-warning">Editar</a>
@@ -42,6 +42,8 @@
     </tbody>
 
     </table>
+    <br><br><br><br>
+    <a th:href="@{/menu}" class="btn btn-primary btn-lg">Menu Principal</a>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

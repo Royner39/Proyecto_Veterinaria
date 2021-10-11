@@ -8,24 +8,28 @@
 </head>
 <body>
 <div class="container mt-4">
-<h1>Lista de Especialidades</h1>
-<a th:href="@{/nuevaEspecialidad}" class="btn btn-primary">Nuevo</a>
+<h1>Lista de Productos</h1>
     <table class="table">
         <thead>
         <tr>
             <td>ID</td>
             <td>Nombre</td>
+            <td>Descipción</td>
+            <td>Existencias</td>
+            <td>Precio</td>
             <td>Acciones</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="especialidad:${especialidades}">
-            <td th:text="${especialidad.id_especialidad}"></td>
-            <td th:text="${especialidad.nombre_especialidad}"></td>
+        <tr th:each="producto:${productos}">
+            <td th:text="${producto.id_producto}"></td>
+            <td th:text="${producto.nombre_producto}"></td>
+            <td th:text="${producto.descripcion}"></td>
+            <td th:text="${producto.cantidad_inventario}"></td>
+            <td th:text="${producto.precio_producto}"></td>
             <td>
-                <a th:href="@{/editarEspecialidad/}+${especialidad.id_especialidad}" class="btn btn-warning">Editar</a>
-                <a th:onclick="eliminarEspecialidad([[${especialidad.id_especialidad}]])" class= "btn btn-danger">Eliminar</a>
-            </td>
+                <a th:href="@{/listarProductos}" class="btn btn-primary">Seleccionar</a>
+                </td>
         </tr>
     </tbody>
 

@@ -1,5 +1,6 @@
 package com.lp.proyecto_veterinaria.interfaceService;
 
+import com.lp.proyecto_veterinaria.model.Mascota;
 import com.lp.proyecto_veterinaria.model.Veterinario;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 public interface IVeterinarioService {
     List<Veterinario> listar();
     Optional<Veterinario> listarId(int cedula);
+    List<Mascota> listarMascotas();
     int save(Veterinario v);
     void delete(int cedula);
 }

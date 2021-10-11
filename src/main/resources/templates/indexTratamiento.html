@@ -8,23 +8,25 @@
 </head>
 <body>
 <div class="container mt-4">
-<h1>Lista de Especialidades</h1>
-<a th:href="@{/nuevaEspecialidad}" class="btn btn-primary">Nuevo</a>
+<h1>Lista de Tratamientos</h1>
+<a th:href="@{/nuevoTratamiento}" class="btn btn-primary">Nuevo</a>
     <table class="table">
         <thead>
         <tr>
             <td>ID</td>
-            <td>Nombre</td>
+            <td>Fecha</td>
+            <td>Descipción</td>
             <td>Acciones</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="especialidad:${especialidades}">
-            <td th:text="${especialidad.id_especialidad}"></td>
-            <td th:text="${especialidad.nombre_especialidad}"></td>
+        <tr th:each="tratamiento:${tratamientos}">
+            <td th:text="${tratamiento.id_tratamiento}"></td>
+            <td th:text="${tratamiento.fecha}"></td>
+            <td th:text="${tratamiento.descripcion}"></td>
             <td>
-                <a th:href="@{/editarEspecialidad/}+${especialidad.id_especialidad}" class="btn btn-warning">Editar</a>
-                <a th:onclick="eliminarEspecialidad([[${especialidad.id_especialidad}]])" class= "btn btn-danger">Eliminar</a>
+                <a th:href="@{/editarTratamiento/}+${tratamiento.id_tratamiento}" class="btn btn-warning">Editar</a>
+                <a th:onclick="eliminarEspecialidad([[${tratamiento.id_tratamiento}]])" class= "btn btn-danger">Eliminar</a>
             </td>
         </tr>
     </tbody>

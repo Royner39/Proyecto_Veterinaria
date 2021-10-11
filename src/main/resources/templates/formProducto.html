@@ -9,32 +9,36 @@
 <body>
 <div class="container mt-4">
     <div class="col-sm-6">
-        <form th:action="@{/guardarMascota}" th:object="${mascota}" method="POST">
+        <form th:action="@{/guardarProducto}" th:object="${producto}" method="POST">
             <div class="card">
                 <div class="card-header">
-                    <h3>Módulo Mascota</h3>
+                    <h3>Módulo Producto</h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
                         <label>ID</label>
-                        <input th:field="*{id_mascota}" type="text" class="form-control">
+                        <input th:field="*{id_producto}" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input th:field="*{nombre}" type="text" class="form-control">
+                        <input th:field="*{nombre_producto}" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Fecha Nacimiento</label>
-                        <input th:field="*{fecha_nacimiento}" type="text" class="form-control">
+                        <label>Descripción</label>
+                        <input th:field="*{descripcion}" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Tipo</label>
-                        <input th:field="*{tipo}" type="text" class="form-control">
+                        <label>Existencias</label>
+                        <input th:field="*{cantidad_inventario}" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Precio</label>
+                        <input th:field="*{precio_producto}" type="text" class="form-control">
                     </div>
 
                 </div>
                 <div class="card-footer">
-                    <input type="submit" value="Guardar Mascota" class="btn btn-success">
+                    <input type="submit" value="Guardar Producto" class="btn btn-success">
                 </div>
             </div>
         </form>

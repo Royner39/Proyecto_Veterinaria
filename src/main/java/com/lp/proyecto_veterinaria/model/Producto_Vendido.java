@@ -15,7 +15,7 @@ public class Producto_Vendido {
     private double precio_neto;
 
     @OneToOne
-    @JoinTable(name = "producto_vendido_producto",joinColumns = @JoinColumn(name = "id_producto_vendido"),inverseJoinColumns = @JoinColumn(name = "id_producto_tienda"))
+    @JoinTable(name = "producto_vendido_producto",joinColumns = @JoinColumn(name = "id_producto_vendido"),inverseJoinColumns = @JoinColumn(name = "id_producto"))
     private Producto_Tienda producto;
 
     @ManyToOne

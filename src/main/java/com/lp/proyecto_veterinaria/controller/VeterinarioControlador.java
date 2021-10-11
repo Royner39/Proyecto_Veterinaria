@@ -1,6 +1,7 @@
 package com.lp.proyecto_veterinaria.controller;
 
 import com.lp.proyecto_veterinaria.interfaceService.IVeterinarioService;
+import com.lp.proyecto_veterinaria.model.Mascota;
 import com.lp.proyecto_veterinaria.model.Veterinario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,12 @@ public class VeterinarioControlador {
         List<Veterinario> veterinarios = veterinarioService.listar();
         model.addAttribute("veterinarios",veterinarios);
         return "indexVeterinario";
+    }
+    @GetMapping("/listarMascotas")
+    public String listarMascotas(Model model){
+        List<Mascota> mascotas = veterinarioService.listarMascotas();
+        model.addAttribute("mascotas",mascotas);
+        return "indexMascota";
     }
 
     @GetMapping("/nuevoVeterinario")

@@ -21,6 +21,7 @@
             <td>Número Colegiado</td>
             <td>Horario Atención</td>
             <td>Especialidades</td>
+            <td>Atender</td>
             <td>Acciones</td>
         </tr>
         </thead>
@@ -37,6 +38,9 @@
                 <a th:href="@{/listarEspecialidades/}+${veterinario.cedula}" class="btn btn-secondary">Ver Especialidades</a>
             </td>
             <td>
+                <a th:href="@{/listarMascotas}" class="btn btn-secondary">Atender Mascota</a>
+            </td>
+            <td>
                 <a th:href="@{/editarVeterinario/}+${veterinario.cedula}" class="btn btn-warning">Editar</a>
                 <a th:onclick="eliminarVeterinario([[${veterinario.cedula}]])" class= "btn btn-danger">Eliminar</a>
             </td>
@@ -44,6 +48,8 @@
     </tbody>
 
     </table>
+    <br><br><br><br>
+    <a th:href="@{/menu}" class="btn btn-primary btn-lg">Menu Principal</a>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

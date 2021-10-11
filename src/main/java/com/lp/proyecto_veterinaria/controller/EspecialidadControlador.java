@@ -45,14 +45,14 @@ public class EspecialidadControlador {
         return "redirect:/listarEspecialidades/{cedula}";
     }
 
-    @GetMapping("/editarEspecialidad/{id}")
+    @GetMapping("/editarEspecialidad/{id_especialidad}")
     public String editarEspecialidad(@PathVariable int id, Model model){
         Optional<Especialidad> especialidad = especialidadService.listarId(id);
         model.addAttribute("especialidad",especialidad);
         return "formEspecialidad";
     }
 
-    @GetMapping("/eliminarEspecialidad/{id}")
+    @GetMapping("/eliminarEspecialidad/{id_especialidad}")
     public String eliminarEspecialidad(@PathVariable int id,Model model){
         especialidadService.delete(id);
         return "redirect:/listarEspecialidades/{cedula}";
